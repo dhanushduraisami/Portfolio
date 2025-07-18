@@ -6,8 +6,8 @@ import { Navbar } from '@/components/Navbar';
 import { AboutSection } from '@/components/AboutSection'; // Imports the AboutSection component [8]
 import { SkillsSection } from '@/components/SkillsSection'; // Imports the SkillsSection component [9]
 import { ProjectsSection } from '@/components/ProjectsSection'; // Imports the ProjectsSection component [10]
-// import { ContactSection } from '@/components/ContactSection'; // Imports the ContactSection component [11]
-// import { Footer } from '@/components/Footer'; // Imports the Footer component [12]
+import { ContactSection } from '@/components/ContactSection'; // Imports the ContactSection component [11]
+import { Footer } from '@/components/Footer'; // Imports the Footer component [12]
 
 // Define the Home component
 export const Home = () => { // [1]
@@ -26,20 +26,17 @@ export const Home = () => { // [1]
             <main>
 
                 <HeroSection /> 
-
-                <AboutSection /> 
-
+                <AboutSection />
 
                 <SkillsSection />
 
-
                 <ProjectsSection />
 
-                {/* <ContactSection /> [11] */} 
+               <ContactSection />
            </main>
 
 
-            {/* //<Footer /> [12] */}
+            <Footer />
         </div>
     );
 };
