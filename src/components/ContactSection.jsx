@@ -3,7 +3,6 @@ import { cn } from "../lib/utils";
 import { useState } from "react";
 import { useToast } from "../hooks/use-toast";
 import { Description } from "@radix-ui/react-toast";
-import emailjs from 'emailjs-com';
 
 export const ContactSection = () => {
     const {toast} = useToast();
@@ -22,25 +21,15 @@ export const ContactSection = () => {
             e.preventDefault();
             setIsSubmittig(true);
 
-            // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
-            emailjs.sendForm(
-                'YOUR_SERVICE_ID',      // Get from EmailJS: Email Services (e.g., 'service_abc123')
-                'YOUR_TEMPLATE_ID',     // Get from EmailJS: Email Templates (e.g., 'template_xyz789')
-                e.target,
-                'YOUR_PUBLIC_KEY'       // Get from EmailJS: Account → General (Public Key)
-            ).then(() => {
+            // Simple form submission placeholder
+            setTimeout(() => {
                 toast({
-                    title: "Message sent!",
-                    description: "Thank you for your message. I'll get back soon."
+                    title: "Message received!",
+                    description: "Thank you for your message. I'll get back to you soon."
                 });
+                e.target.reset();
                 setIsSubmittig(false);
-            }, () => {
-                toast({
-                    title: "Error!",
-                    description: "Failed to send message. Please try again."
-                });
-                setIsSubmittig(false);
-            });
+            }, 1000);
         }
 
     return (
