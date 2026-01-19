@@ -3,22 +3,34 @@ import { cn } from "../lib/utils";
 import { useState } from "react";
 import { useToast } from "../hooks/use-toast";
 import { Description } from "@radix-ui/react-toast";
+import emailjs from 'emailjs-com';
 
 export const ContactSection = () => {
     const {toast} = useToast();
     const [isSubmitting,setIsSubmittig] = useState(false);
 
-        const handleSubmit = (e) =>{
-            e.preventDefault()
-            setIsSubmittig(true)
-            setTimeout(() =>{
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            setIsSubmittig(true);
+
+            emailjs.sendForm(
+                'YOUR_SERVICE_ID',      // replace with your EmailJS service ID
+                'YOUR_TEMPLATE_ID',     // replace with your EmailJS template ID
+                e.target,
+                'YOUR_USER_ID'          // replace with your EmailJS user ID
+            ).then(() => {
                 toast({
-                    title:"Message sent!",
-                    description : "Thank you for your message.I'll get back soon."
-                })
-                setIsSubmittig(false);                     
-            },1500);
-            
+                    title: "Message sent!",
+                    description: "Thank you for your message. I'll get back soon."
+                });
+                setIsSubmittig(false);
+            }, () => {
+                toast({
+                    title: "Error!",
+                    description: "Failed to send message. Please try again."
+                });
+                setIsSubmittig(false);
+            });
         }
 
     return (
@@ -89,12 +101,12 @@ export const ContactSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-card p-8 rounded-lg shadow-xs" onSubmit={handleSubmit}>
+                    <div className="bg-card p-8 rounded-lg shadow-xs">
                         <h3 className="text-2xl font-semibold mb-6">
                         send a Message
                         </h3>
 
-                        <form action="" className="space-y-6">
+                        <form action="" className="space-y-6" onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium mb-2"> Your Name</label>
                                 <input type="text"
