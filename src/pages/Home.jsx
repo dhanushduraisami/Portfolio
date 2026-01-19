@@ -1,6 +1,6 @@
 import React from 'react'; // Implicitly used for JSX, though not explicitly mentioned for 'React' import on its own
 import { HeroSection } from '@/components/HeroSection'; // Imports the HeroSection component [4]
-import { StarBackground } from '@/components/StarBackground'; // Imports the StarBackground component [5]
+import { StarBackground } from '@/components/starBackground'; // Imports the StarBackground component [5]
 import { ThemeToggle } from '@/components/ThemeToggle'; // Imports the ThemeToggle component [6]
 import { Navbar } from '@/components/Navbar'; 
 import { AboutSection } from '@/components/AboutSection'; // Imports the AboutSection component [8]
