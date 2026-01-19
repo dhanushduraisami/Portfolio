@@ -9,15 +9,25 @@ export const ContactSection = () => {
     const {toast} = useToast();
     const [isSubmitting,setIsSubmittig] = useState(false);
 
+        const handlePhoneCopy = () => {
+            navigator.clipboard.writeText("+918056426649").then(() => {
+                toast({
+                    title: "Phone number copied!!!",
+                    description: "+91 8056426649"
+                });
+            });
+        };
+
         const handleSubmit = (e) => {
             e.preventDefault();
             setIsSubmittig(true);
 
+            // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
             emailjs.sendForm(
-                'YOUR_SERVICE_ID',      // replace with your EmailJS service ID
-                'YOUR_TEMPLATE_ID',     // replace with your EmailJS template ID
+                'YOUR_SERVICE_ID',      // Get from EmailJS: Email Services (e.g., 'service_abc123')
+                'YOUR_TEMPLATE_ID',     // Get from EmailJS: Email Templates (e.g., 'template_xyz789')
                 e.target,
-                'YOUR_USER_ID'          // replace with your EmailJS user ID
+                'YOUR_PUBLIC_KEY'       // Get from EmailJS: Account → General (Public Key)
             ).then(() => {
                 toast({
                     title: "Message sent!",
@@ -57,7 +67,7 @@ export const ContactSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-medium">Email</h4>
-                                    <a href="dhanus6851@gmail.com"
+                                    <a href="https://mail.google.com/mail/?view=cm&to=dhanus6851@gmail.com" target="_blank"
                                     className="text-muted-foreground hover:text-primary transition-colors">
                                         dhanus6851@gmail.com
                                     </a>
@@ -69,10 +79,10 @@ export const ContactSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-medium"> Phone</h4>
-                                    <a href="+918056426649"
-                                    className="text-muted-foreground hover:text-primary transition-colors">
+                                    <button onClick={handlePhoneCopy}
+                                    className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                                         +91 8056426649
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-4">

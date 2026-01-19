@@ -1,23 +1,22 @@
 import { useState } from "react";
 import {cn} from '../lib/utils'
     const skills = [
-        { name: 'HTML CSS', level: 95, category: 'frontend' },
+        { name: 'HTML CSS', level: 90, category: 'frontend' },
         { name: 'JavaScript', level: 90, category: 'frontend' },
         { name: 'React', level: 85, category: 'frontend' },
         { name: 'TypeScript', level: 80, category: 'frontend' },
-        { name: 'Next.js', level: 75, category: 'frontend' },
-        { name: 'Tailwind', level: 90, category: 'frontend' },
-        { name: 'Node', level: 80, category: 'backend' },
-        { name: 'Express', level: 75, category: 'backend' },
+        { name: 'Flutter', level: 80, category: 'App Development' },
+        { name: 'Next.js', level: 70, category: 'frontend' },
+        { name: 'Tailwind', level: 80, category: 'frontend' },
+        { name: 'Node', level: 70, category: 'backend' },
+        { name: 'Express', level: 70, category: 'backend' },
         { name: 'Mongo', level: 70, category: 'backend' },
-        { name: 'GraphQL', level: 65, category: 'backend' },
         { name: 'Postgres', level: 60, category: 'backend' },
-        { name: 'Figma', level: 85, category: 'tools' },
-        { name: 'Docker', level: 70, category: 'tools' },
+        { name: 'Docker', level: 50, category: 'tools' },
         { name: 'Git', level: 90, category: 'tools' },
         // You can add more skills here, including AWS services like EC2 and Lambdas [3].
     ];
-const categories =["all","frontend","backend","tools"];
+const categories =["all","frontend","backend","tools","App Development"];
 
 export const SkillsSection = () => {
  const [activeCategory,setActiveCategory] = useState("all")
